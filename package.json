@@ -2,12 +2,11 @@
     "name": "@hexlet/code",
     "version": "1.0.0",
     "description": "[![Actions Status](https://github.com/alexzbs/frontend-testing-react-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/alexzbs/frontend-testing-react-project-lvl1/actions)",
-    "bin": {
-        "nodejs-package": "bin/code.js"
-    },
-    "main": "page-loader.js",
     "scripts": {
         "test": "npx jest"
+    },
+    "bin": {
+        "page-loader": "bin/page-loader.js"
     },
     "type": "module",
     "repository": {

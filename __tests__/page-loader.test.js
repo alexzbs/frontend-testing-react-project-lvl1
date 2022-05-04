@@ -32,17 +32,24 @@ afterAll(() => {
 })
 
 test('pageLoaderCore downloader', async () => {
-    await pageLoaderCore(url, dir)
-    console.log('after fn')
-    const page = (await fs.readFile(path.join(dir, formattedName))).toString()
+    try {
+        await pageLoaderCore(url, dir)
+        const page = (
+            await fs.readFile(path.join(dir, formattedName))
+        ).toString()
 
-    expect(page).toBe(expected)
+        expect(page).toBe(expected)
+    } catch (e) {
+        expect(e).toMatch('error')
+    }
 })
 
 test('pageLoaderCore downloader default path', async () => {
-    await pageLoaderCore(url)
-
-    const page = (await fs.readFile(path.join(formattedName))).toString()
-
-    expect(page).toBe(expected)
+    try {
+        await pageLoaderCore(url)
+        const page = (await fs.readFile(path.join(formattedName))).toString()
+        expect(page).toBe(expected)
+    } catch (e) {
+        expect(e).toMatch('error')
+    }
 })
